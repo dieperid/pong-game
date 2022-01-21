@@ -1,0 +1,11 @@
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\bin\Debug\netcoreapp2.2\pong.deps.json
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\bin\Debug\netcoreapp2.2\pong.runtimeconfig.json
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\bin\Debug\netcoreapp2.2\pong.runtimeconfig.dev.json
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\bin\Debug\netcoreapp2.2\pong.dll
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\obj\Debug\netcoreapp2.2\pong.csprojAssemblyReference.cache
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\obj\Debug\netcoreapp2.2\pong.csproj.CoreCompileInputs.cache
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\obj\Debug\netcoreapp2.2\pong.AssemblyInfoInputs.cache
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\obj\Debug\netcoreapp2.2\pong.AssemblyInfo.cs
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\bin\Debug\netcoreapp2.2\pong.pdb
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\obj\Debug\netcoreapp2.2\pong.dll
+F:\CFC\Complementaire\git-repo\pong-game\pong\pong\obj\Debug\netcoreapp2.2\pong.pdb
