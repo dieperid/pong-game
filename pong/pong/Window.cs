@@ -1,93 +1,125 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SFML.Window;
-using SFML.Graphics;
+﻿using SFML.Graphics;
 using SFML.System;
+using SFML.Window;
+using System;
+using System.Collections.Generic;
 
 
 namespace pong
 {
+    /// <summary>
+    /// Class Window
+    /// </summary>
     class Window
     {
-        const float BALL_WIDTH = 20;
-        const float BALL_HEIGHT = 20;
-        int velocityX = 5;
-        int velocityY = 5;
-        int velocityShapeY = 5;
-
-        public Window(uint sizeWindow, float shapeWidth, float shapeHeight)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="sizeWindow">Window size</param>
+        public Window(uint sizeWindow)
         {
-            RenderWindow window = new RenderWindow(new VideoMode(sizeWindow, sizeWindow), "Pong");
-            RectangleShape shape = new RectangleShape(new Vector2f(shapeWidth, shapeHeight));
-            RectangleShape shape2 = new RectangleShape(new Vector2f(shapeWidth, shapeHeight));
-            RectangleShape ball = new RectangleShape(new Vector2f(BALL_WIDTH, BALL_HEIGHT));
-            Vector2f shapePosition = new Vector2f(0, 0);
-            Vector2f shapePosition2 = new Vector2f(sizeWindow - shapeWidth, 0);
-            Vector2f ballPosition = new Vector2f(sizeWindow / 2, sizeWindow / 2 - 100);
+            RenderWindow window = new RenderWindow(new VideoMode(sizeWindow, sizeWindow), "Pong");  // New window
+            Player player = new Player();   // New player
+            Enemy enemy = new Enemy();      // New enemy
+            Ball ball = new Ball();         // New ball
+            
+            // Create a List of Drwable items and add the items to it
+            List<Drawable> drawableItems = new List<Drawable>();
+            drawableItems.Add(player.PlayerShape);
+            drawableItems.Add(enemy.EnemyShape);
+            drawableItems.Add(ball.BallShape);
+
+            // Set framerate limit to 60
             window.SetFramerateLimit(60);
 
-            List<Drawable> drawableItems = new List<Drawable>();
-            drawableItems.Add(shape);
-            drawableItems.Add(shape2);
-            drawableItems.Add(ball);
+            // Initialize the position of the items
+            ball.Position += new Vector2f(ball.VBallX, ball.VBallY);
+            player.Position = new Vector2f(0, player.Position.Y);
+            enemy.Position = new Vector2f(sizeWindow - enemy.EnemyWidth, 0);
 
-            shape.Position = shapePosition;
-            shape2.Position = shapePosition2;
-            ball.Position = ballPosition;
-
+            // Fill the color or the items
             foreach (RectangleShape item in drawableItems)
             {
                 item.FillColor = Color.Red;
             }
 
+            // If window is closed
             window.Closed += CloseHandle;
 
+            // While window is Open
             while (window.IsOpen)
             {
+                // Initialize the position of the items
+                enemy.Position = new Vector2f(sizeWindow - enemy.EnemyWidth, enemy.Position.Y);
+                ball.Position += new Vector2f(ball.VBallX, ball.VBallY);
+                player.Position = new Vector2f(0, player.Position.Y);
+
+                // If down key is pressed
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
                 {
-                    velocityShapeY = 5;
+                    if (player.Position.Y + player.PlayerHeight < sizeWindow)
+                    {
+                        player.Position += new Vector2f(0, player.VPlayerY);
+                    }
                 }
+                // else if up key is pressed
                 else if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
                 {
-                    velocityShapeY = -5;
+                    if (player.Position.Y > 0)
+                    {
+                        player.Position -= new Vector2f(0, player.VPlayerY);
+                    }
                 }
-                if (ballPosition.X + BALL_WIDTH > sizeWindow)
+                // Check for de velocity of the ball if she has to go to the left
+                if (ball.Position.X + ball.BallWidth > sizeWindow || ball.Position.X + ball.BallWidth == enemy.Position.X && (ball.Position.Y > enemy.Position.Y || ball.Position.Y < enemy.Position.Y))
                 {
-                    velocityX = -5;
+                    ball.VBallX = -5;
                 }
-                else if (ballPosition.X < 0)
+                // Check for de velocity of the ball if she has to go to the right
+                else if (ball.Position.X < 0 || ball.Position.X == player.Position.X + player.PlayerWidth && ball.Position.Y > player.Position.Y && ball.Position.Y < player.Position.Y + player.PlayerHeight)
                 {
-                    velocityX = 5;
+                    ball.VBallX = 5;
                 }
-                if(ballPosition.Y + BALL_HEIGHT > sizeWindow)
+                // Check for the ball if she's not going above the limit
+                if(ball.Position.Y + ball.BallWidth == sizeWindow)
                 {
-                    velocityY = -5;
+                    ball.VBallY = -5;
                 }
-                else if(ballPosition.Y < 0)
+                // Check for the ball if she's not going above the limit
+                else if (ball.Position.Y == 0)
                 {
-                    velocityY = 5;
+                    ball.VBallY = 5;
                 }
 
-                shapePosition.Y = velocityShapeY;
-                shapePosition2.Y = ballPosition.Y - shapeHeight / 2;
-                ballPosition.X += velocityX;
-                ballPosition.Y += velocityY;
+                // Apply new position to the enemy
+                enemy.Position = new Vector2f(sizeWindow - enemy.EnemyWidth, ball.Position.Y - enemy.EnemyHeight / 2 + 10);
 
-                ball.Position = ballPosition;
-                shape.Position = shapePosition;
-                shape2.Position = shapePosition2;
+                // Check for the enemy if he's not going above the limit
+                if (enemy.Position.Y < 0)
+                {
+                    enemy.Position = new Vector2f(sizeWindow, 0);
+                }
+                // Check for the enemy if he's not going above the limit
+                else if (enemy.Position.Y + enemy.EnemyHeight > sizeWindow)
+                {
+                    enemy.Position = new Vector2f(sizeWindow, sizeWindow - enemy.EnemyHeight);
+                }
+
+                // Apply new position to the enemy
+                enemy.Position = new Vector2f(sizeWindow - enemy.EnemyWidth, enemy.Position.Y);
 
                 window.DispatchEvents();
 
+                // Clear
                 window.Clear();
 
+                // Draw all the items that they're in the list
                 foreach (var element in drawableItems)
                 {
                     window.Draw(element);
                 }
 
+                // Display the window
                 window.Display();
             }
 

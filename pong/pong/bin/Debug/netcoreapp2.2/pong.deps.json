@@ -1,14 +1,21 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "86d59655cfd05a83ed879f09396efab0c02d577d"
+    "signature": "0f1829f66dae9f945c1652b9679e214f63e0c5d7"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
       "pong/1.0.0": {
         "dependencies": {
-          "SFML.Net": "2.5.0"
+          "SFML.Graphics": "2.5.0",
+          "SFML.Net": "2.5.0",
+          "SFML.System": "2.5.0",
+          "SFML.Window": "2.5.0",
+          "sfml-graphics": "2.4.2",
+          "sfml-network": "2.4.2",
+          "sfml-system": "2.4.2",
+          "sfml-window": "2.4.2"
         },
         "runtime": {
           "pong.dll": {}
@@ -308,6 +315,34 @@
           }
         }
       },
+      "sfml-graphics/2.4.2": {
+        "dependencies": {
+          "sfml-graphics.redist": "2.4.2",
+          "sfml-system": "2.4.2",
+          "sfml-window": "2.4.2"
+        }
+      },
+      "sfml-graphics.redist/2.4.2": {},
+      "sfml-network/2.4.2": {
+        "dependencies": {
+          "sfml-network.redist": "2.4.2",
+          "sfml-system": "2.4.2"
+        }
+      },
+      "sfml-network.redist/2.4.2": {},
+      "sfml-system/2.4.2": {
+        "dependencies": {
+          "sfml-system.redist": "2.4.2"
+        }
+      },
+      "sfml-system.redist/2.4.2": {},
+      "sfml-window/2.4.2": {
+        "dependencies": {
+          "sfml-system": "2.4.2",
+          "sfml-window.redist": "2.4.2"
+        }
+      },
+      "sfml-window.redist/2.4.2": {},
       "SFML.Audio/2.5.0": {
         "dependencies": {
           "CSFML": "2.5.0",
@@ -380,6 +415,62 @@
       "sha512": "sha512-A3X+zyjAtvIQkpwCSS/F5fDOFRWeT+USIAK+DhGujNufF+qV1ty5cYGJihmmGeokX3yd89uZoNH8mcsmXCY/yw==",
       "path": "csfml/2.5.0",
       "hashPath": "csfml.2.5.0.nupkg.sha512"
+    },
+    "sfml-graphics/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dfYGdsUh4yUFstSRDlkocMgZJVefXnjTybi/YE9SX31Tha9m6FPBXklsVrFBHfmUwHae7uCnrpM0qTXDLMW+/g==",
+      "path": "sfml-graphics/2.4.2",
+      "hashPath": "sfml-graphics.2.4.2.nupkg.sha512"
+    },
+    "sfml-graphics.redist/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/+HJ2fl9WVGX3Lc3fBvBVHHErmwJ6ft1zH3oXztTYysJcbXb9Ehc9xYjkYKdRhhTgUueldKHXn85EmULET8rrA==",
+      "path": "sfml-graphics.redist/2.4.2",
+      "hashPath": "sfml-graphics.redist.2.4.2.nupkg.sha512"
+    },
+    "sfml-network/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+WtBY1iQsjSatxydnzBtyDrpldfSq8B+UOEly6daUwh9k+CYbVElrOnnhpBzMHlnjIiVFXe9HW5//QYmNNgPWw==",
+      "path": "sfml-network/2.4.2",
+      "hashPath": "sfml-network.2.4.2.nupkg.sha512"
+    },
+    "sfml-network.redist/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MlXZw7IpvpGPinreyeNQDM8Os82JBMbca3tQCmqDJdf8o8yskF+BOw6wlPNtj+8SP56YccTShk/4lofI5/T7ug==",
+      "path": "sfml-network.redist/2.4.2",
+      "hashPath": "sfml-network.redist.2.4.2.nupkg.sha512"
+    },
+    "sfml-system/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xDEi9ssf/xe8xlFB3LFz8ipPWJNAQ0qqIBzwmOjcyIcwotm8Ae7vXo0c8U18I7P5SxN87Wac86enIevJFSU/rA==",
+      "path": "sfml-system/2.4.2",
+      "hashPath": "sfml-system.2.4.2.nupkg.sha512"
+    },
+    "sfml-system.redist/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5omFNp4Kb7rv1vnuGMC1xMLWa0l37RB4q4Mrupn+P871DyYl8yoDl5pKMgf2SB6ihaLvlDH+zzeqta9WgFh3Cg==",
+      "path": "sfml-system.redist/2.4.2",
+      "hashPath": "sfml-system.redist.2.4.2.nupkg.sha512"
+    },
+    "sfml-window/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nusTq6IH/IgxdB10ojHxD9CgLfCMIWhHdFltJHjrJU4l1BfWAbFUUpZfphfKmOE/imNU8i1PSsiegp4A3MQ9qA==",
+      "path": "sfml-window/2.4.2",
+      "hashPath": "sfml-window.2.4.2.nupkg.sha512"
+    },
+    "sfml-window.redist/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KAkXpTnmRtmP8fJOWLQQLTPpiqDd+EV9o3Ri3yJ6K5rzvxRZqQEeBeKpRREr5GbhSFRmgnBIFckz8n/C05/auA==",
+      "path": "sfml-window.redist/2.4.2",
+      "hashPath": "sfml-window.redist.2.4.2.nupkg.sha512"
     },
     "SFML.Audio/2.5.0": {
       "type": "package",

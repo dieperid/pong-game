@@ -47,9 +47,37 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
+            "SFML.Graphics": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
             "SFML.Net": {
               "target": "Package",
               "version": "[2.5.0, )"
+            },
+            "SFML.System": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
+            "SFML.Window": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
+            "sfml-graphics": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "sfml-network": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "sfml-system": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "sfml-window": {
+              "target": "Package",
+              "version": "[2.4.2, )"
             }
           },
           "imports": [
